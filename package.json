@@ -1,0 +1,19 @@
+{
+  "name": "fitly",
+  "version": "1.0.0",
+  "description": "A calorie counter",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junjunparkpark/fitly.git"
+  },
+  "author": "Jun Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junjunparkpark/fitly/issues"
+  },
+  "homepage": "https://github.com/junjunparkpark/fitly#readme"
+}
