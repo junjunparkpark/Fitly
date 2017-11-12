@@ -28,4 +28,4 @@
 * [ExpressJS Docs](https://expressjs.com/)
 * [Body Parser Middleware Docs](https://github.com/expressjs/body-parser)
 * [MongoDB Docs](https://docs.mongodb.com/)
-* [MongooseJS Docs](http://mongoosejs.com/)
+* [GraphQL Docs](http://graphql.org)
