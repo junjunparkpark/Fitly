@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import DiaryLog from './Components/Diary/DiaryLog.jsx';
 
 const App = () => (
-  <div>Hello World</div>
+  <div>
+    <DiaryLog />
+  </div>
 );
 
 
