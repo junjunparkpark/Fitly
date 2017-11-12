@@ -4,7 +4,9 @@
   "description": "A calorie counter",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "webpack -d --watch",
+    "start": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
