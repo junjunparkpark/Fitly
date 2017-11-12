@@ -2,34 +2,46 @@ import React from 'react';
 
 const DiaryLog = () => {
   return (
-    <table class="table table-hover">
-      <thead>
+    <table className="table table-responsive-md table-hover">
+      <thead className="thead-light">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Username</th>
+          <th scope="col" colSpan="2">* Type of Meal(Breakfast, lunch, dinner) *</th>
+          <th scope="col">Calories<br/>(kcal)</th>
+          <th scope="col">Carbs<br/>(g)</th>
+          <th scope="col">Fat<br/>(g)</th>
+          <th scope="col">Protein<br/>(g)</th>
+          <th scope="col">Sodium<br/>(mg)</th>
+          <th scope="col">Sugar<br/>(g)</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
+          <td colSpan="2">*food name</td>
+          <td>*cals*</td>
+          <td>*carbs*</td>
+          <td>*fat*</td>
+          <td>*protein*</td>
+          <td>*sodium*</td>
+          <td>*sugar*</td>
+          <td><button>delete</button></td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td colSpan="2">
+            <button>Add Food</button> |
+            <button>Quick Tools</button>
+          </td>
+          <td>*cals totals*</td>
+          <td>*carbs totals*</td>
+          <td>*fat totals *</td>
+          <td>*protein totals*</td>
+          <td>*sodium totals *</td>
+          <td>*sugar totals*</td>
+          <td></td>
+        </tr>
+      </tfoot>
     </table>
   );
 }

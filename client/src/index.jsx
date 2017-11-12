@@ -4,7 +4,18 @@ import DiaryLog from './Components/Diary/DiaryLog.jsx';
 
 const App = () => (
   <div>
-    <DiaryLog />
+    <div className="container">
+      <h1>Your Food Diary For:</h1>
+    </div>
+    <div className="container">
+      <div className="col-md-1">
+      </div>
+      <div className="col-md-10">
+      <DiaryLog />
+      </div>
+      <div className="col-md-1">
+      </div>
+    </div>
   </div>
 );
 
