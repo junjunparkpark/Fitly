@@ -13,7 +13,7 @@ class App extends Component {
         carbs: 0,
         fats: 0,
         protein: 0,
-        todium: 0,
+        sodium: 0,
         sugar: 0
       },
       dailyGoal: {
@@ -21,7 +21,7 @@ class App extends Component {
         carbs: 0,
         fats: 0,
         protein: 0,
-        todium: 0,
+        sodium: 0,
         sugar: 0        
       },
       Breakfast: {
@@ -90,7 +90,7 @@ class App extends Component {
 
   handleAddFoodSubmit(event, mealType, data) {
     event.preventDefault();
-   
+    console.log(mealType)
     this.setState({
       dailyTotal: {
         calories: this.state.totalCalories + data.calories,
@@ -116,6 +116,15 @@ class App extends Component {
   handleQuickAddSubmit(event) {
     event.preventDefault();
     console.log('handleQuickAdd was invoked!', event);
+  }
+
+  handleNumberChange(e) {
+    this.setState({ [`${e.target.name}`]: parseInt(e.target.value) });
+    console.log(this.state);
+  }
+
+  handleStringChange(e) {
+    this.setState({ [`${e.target.name}`]: e.target.value });
   }
 
   render() {

@@ -27,15 +27,31 @@ class AddFoodModalButton extends Component {
   handleStringChange(e) {
     this.setState({ [`${e.target.name}`]: e.target.value });
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(e.target, this.props.mealType)
+    this.props.handleAddFoodSubmit(e, this.props.mealType, this.state)
+    this.setState({
+      calories: 0,
+      carbs: 0,
+      fats: 0,
+      protein: 0,
+      sodium: 0,
+      sugar: 0,
+      name: ''
+    });
+  }
  // [`${mealType}`]
   render() {
-    const { handleAddFoodSubmit, mealType } = this.props;
+    const { mealType } = this.props;
+
     return (
       <div>
-        <button type="button" className="btn btn-xs btn-primary" data-toggle="modal" data-target="#foodModal">
+        <button type="button" className="btn btn-xs btn-primary" data-toggle="modal" data-target={`#${mealType}Modal`}>
           Add Food
         </button>
-        <div className="modal fade" id="foodModal" tabIndex="-1" role="dialog" aria-hidden="true">
+        <div className="modal fade" id={`${mealType}Modal`} tabIndex="-1" role="dialog" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -45,7 +61,7 @@ class AddFoodModalButton extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                <form onSubmit={(e) => handleAddFoodSubmit(e, mealType, this.state) } name={`${mealType}`} >
+                <form onSubmit={this.handleSubmit.bind(this)} name={`${this.props.mealType}`} >
                   <div className="form-group">
                     <label htmlFor="modal-foodname" className="form-control-label">Food Name:</label>
                     <input type="text" name="name" className="form-control" onChange={ this.handleStringChange }/>

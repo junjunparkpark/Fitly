@@ -9,7 +9,7 @@ const DiaryLogMealEntry = ({ data }) => (
     <td className="nutrient-column">{data.protein}</td>
     <td className="nutrient-column">{data.sodium}</td>
     <td className="nutrient-column">{data.sugar}</td>
-    <td><button className="btn btn-alert btn-xs">delete</button></td>
+    <td><button className="btn btn-danger btn-xs">delete</button></td>
   </tr>
 );
 
