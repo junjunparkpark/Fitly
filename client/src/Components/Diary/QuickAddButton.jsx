@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const QuickAddButton = () => {
+const QuickAddButton = ({ handleQuickAddSubmit, mealType }) => {
   return (
     <div className="dropdown">
       <button className="btn btn-primary btn-xs dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

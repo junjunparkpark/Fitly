@@ -4,7 +4,7 @@ import QuickAddButton from './QuickAddButton.jsx';
 import AddFoodModalButton from './AddFoodModalButton.jsx';
 
 
-const DiaryLog = ({ mealType, data }) => {
+const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleQuickAddSubmit }) => {
   return (
     <table className="table table-responsive-md table-hover">
       <thead className="thead-light">
@@ -26,7 +26,11 @@ const DiaryLog = ({ mealType, data }) => {
       </tbody>
       <tfoot>
         <tr>
-          <td><AddFoodModalButton /> | <QuickAddButton/></td>
+          <td>
+            <AddFoodModalButton mealType={mealType} handleAddFoodSubmit={handleAddFoodSubmit} /> 
+            | 
+            <QuickAddButton mealType={mealType} handleQuickAddSubmit={handleQuickAddSubmit} />
+          </td>
           <td>{ data.calories }</td>
           <td>{ data.carbs }</td>
           <td>{ data.fats }</td>

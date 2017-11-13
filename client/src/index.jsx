@@ -54,16 +54,30 @@ class App extends Component {
         total: 0
       }
     }
+
+    this.handleAddFoodSubmit = this.handleAddFoodSubmit.bind(this);
+    this.handleQuickAddSubmit = this.handleQuickAddSubmit.bind(this);
   }
 
   componentWillMount() {
     // Implement a fetch to our database that will fill state based on current date
   }
 
+  handleAddFoodSubmit(event) {
+    event.preventDefault();
+    console.log('handleAddFoodSubmit was invoked!');
+
+  }
+
+  handleQuickAddSubmit(event) {
+    event.preventDefault();
+    console.log('handleQuickAdd was invoked!');
+  }
+
   render() {
     return (
       <div>
-        <Diary currentDay={this.state} />
+        <Diary currentDay={this.state} handleAddFoodSubmit={this.handleAddFoodSubmit} handleQuickAddSubmit={this.handleQuickAddSubmit} />
       </div>
     )
   }
