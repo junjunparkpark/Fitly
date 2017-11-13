@@ -56,10 +56,14 @@ class App extends Component {
     }
   }
 
+  componentWillMount() {
+    // Implement a fetch to our database that will fill state based on current date
+  }
+
   render() {
     return (
       <div>
-        <Diary />
+        <Diary currentDay={this.state} />
       </div>
     )
   }
