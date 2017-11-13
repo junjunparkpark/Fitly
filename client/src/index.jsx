@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Diary from './Components/Diary/Diary.jsx';
 import moment from 'moment';
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       date: moment().format('dddd, MMMM Do YYYY'),
+      dateStep: 0,
       user: '',
       dailyTotal: {
         calories: 0,
@@ -75,6 +77,8 @@ class App extends Component {
 
     this.handleAddFoodSubmit = this.handleAddFoodSubmit.bind(this);
     this.handleFoodDelete = this.handleFoodDelete.bind(this);
+    this.handleAddDay = this.handleAddDay.bind(this);
+    this.handleSubtractDay = this.handleSubtractDay.bind(this);
   }
 
   componentWillMount() {
@@ -84,8 +88,18 @@ class App extends Component {
   componentDidMount() {
     // Prompt a modal to get goals from user
     // this.setState({
-    console.log(this.state.date - 1);
+    
     // })
+  }
+
+  fetchCurrentDateDiary() {
+    axios.get('/api/diary')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   handleAddFoodSubmit(event, mealType, data) {
@@ -119,11 +133,23 @@ class App extends Component {
 
   handleNumberChange(e) {
     this.setState({ [`${e.target.name}`]: parseInt(e.target.value) });
-    console.log(this.state);
   }
 
   handleStringChange(e) {
     this.setState({ [`${e.target.name}`]: e.target.value });
+  }
+
+  handleAddDay() {
+    let newDate = moment().add(1, 'd');
+    this.setState({step: this.state.step + 1})
+    this.fetchCurrentDateDiary();
+  }
+
+  handleSubtractDay() {
+    let newDate = moment(this.state.date).subtract(1, 'd');
+    this.setState({ step: this.state.step - 1 })
+    console.log(newDate);
+    this.fetchCurrentDateDiary();
   }
 
   handleFoodDelete(data, mealType) {
@@ -155,7 +181,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Diary id="diary" currentDay={this.state} handleAddFoodSubmit={this.handleAddFoodSubmit} handleFoodDelete={this.handleFoodDelete} />
+        <Diary 
+          id="diary" 
+          currentDay={this.state} 
+          handleAddFoodSubmit={this.handleAddFoodSubmit} 
+          handleFoodDelete={this.handleFoodDelete} 
+          handleAddDay={this.handleAddDay}
+          handleSubtractDay={this.handleSubtractDay}
+        />
       </div>
     )
   }

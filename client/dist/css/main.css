@@ -1,4 +1,8 @@
 
+.center {
+  text-align:center;
+  margin-bottom:15px;
+}
 .meal-header {
   font-weight: bold;
   font-size: 20px; 
