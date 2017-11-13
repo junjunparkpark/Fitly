@@ -19,7 +19,7 @@ var foodSchema = mongoose.Schema({
   sugar: Number
 });
 
-var diaryEntrySchema = mongoose.Schema({
+var DiaryEntry = mongoose.model('DiaryEntry', {
   date: String,
   dateStep: Number,
   user: String,
@@ -86,6 +86,8 @@ var diaryEntrySchema = mongoose.Schema({
     total: Number
   }
 });
+
+module.exports.DiaryEntry = DiaryEntry;
 
 // Possible Database Schema Designs
 

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const { DiaryEntry } = require('../database/index.js');
 
 const app = express();
 const PORT = 3000;
@@ -13,14 +14,19 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.get('/api/diary', (req, res) => {
-  fs.readFile(path.join(__dirname, '../database/foods.txt'), (err, data) => {
+  
+});
+
+app.post('/api/diary', (req, res) => {
+  var newEntry = new DiaryEntry(req.body);
+  newEntry.save((err) => {
     if (err) {
       console.log(err);
-      res.sendStatus(500); 
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(201);
     }
-    let dates = data.toString().split('\\n').map(date => JSON.parse(date));
-    console.log(dates);
-  });
+  })
 })
 
 
