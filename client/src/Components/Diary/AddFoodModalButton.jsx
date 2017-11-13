@@ -4,7 +4,6 @@ class AddFoodModalButton extends Component {
   constructor(props) {
     super(props);
     
-    // Add state to represent a food to be added in the Index.jsx component
     this.state = {
       calories: 0,
       carbs: 0,
@@ -21,7 +20,6 @@ class AddFoodModalButton extends Component {
 
   handleNumberChange(e) {
     this.setState({ [`${e.target.name}`]: parseInt(e.target.value) });
-    console.log(this.state);
   }
 
   handleStringChange(e) {
@@ -30,19 +28,9 @@ class AddFoodModalButton extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target, this.props.mealType)
     this.props.handleAddFoodSubmit(e, this.props.mealType, this.state)
-    this.setState({
-      calories: 0,
-      carbs: 0,
-      fats: 0,
-      protein: 0,
-      sodium: 0,
-      sugar: 0,
-      name: ''
-    });
   }
- // [`${mealType}`]
+
   render() {
     const { mealType } = this.props;
 

@@ -81,7 +81,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
     // Prompt a modal to get goals from user
     // this.setState({
 
@@ -90,7 +89,7 @@ class App extends Component {
 
   handleAddFoodSubmit(event, mealType, data) {
     event.preventDefault();
-    console.log(data)
+    
     this.setState({
       dailyTotal: {
         calories: this.state.dailyTotal.calories + data.calories,
@@ -115,7 +114,6 @@ class App extends Component {
 
   handleQuickAddSubmit(event) {
     event.preventDefault();
-    console.log('handleQuickAdd was invoked!', event);
   }
 
   handleNumberChange(e) {
@@ -128,7 +126,7 @@ class App extends Component {
   }
 
   handleFoodDelete(data, mealType) {
-    console.log('handleFoodDelete!!!  ', data, mealType)
+    console.log('handleFoodDelete!!!  ', JSON.stringify(this.state));
     let targetFood = JSON.stringify(data);
     let newFoods = this.state[`${mealType}`].foods.filter(food => JSON.stringify(food) !== targetFood);
     

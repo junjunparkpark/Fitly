@@ -9,6 +9,11 @@
   text-align: center;
 }
 
+.nutrient-footer {
+  color: #0f73ab;
+  font-weight: bold;
+}
+
 .nutrient-totals {
   text-align: right;
 }

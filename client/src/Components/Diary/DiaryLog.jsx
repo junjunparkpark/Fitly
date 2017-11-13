@@ -2,7 +2,6 @@ import React from 'react';
 import DiaryLogMealEntry from './DiaryLogMealEntry.jsx';
 import QuickAddButton from './QuickAddButton.jsx';
 import AddFoodModalButton from './AddFoodModalButton.jsx';
-import DiaryLogCategoryRow from './DiaryLogCategoryRow.jsx';
 
 
 
@@ -24,7 +23,7 @@ const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleFoodDelete }) => 
     <tbody>
       { header }
       { data.foods.map(food => <DiaryLogMealEntry mealType={mealType} data={food} handleFoodDelete={handleFoodDelete} />) }
-      <tr>
+      <tr className="nutrient-footer">
         <td>
           <AddFoodModalButton mealType={mealType} handleAddFoodSubmit={handleAddFoodSubmit} />
         </td>

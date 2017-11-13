@@ -1,9 +1,7 @@
 import React from 'react';
-import DiaryLogCategoryRow from './DiaryLogCategoryRow.jsx';
 
 const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
     <tbody>
-      {console.log('daily total --->', dailyTotal, 'daily goal ---> ', dailyGoal)}
       <tr className="nutrient-totals-text" >
         <td className="nutrient-totals">
           Totals
