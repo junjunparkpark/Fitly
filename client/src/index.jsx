@@ -93,8 +93,12 @@ class App extends Component {
     // })
   }
 
-  fetchCurrentDateDiary() {
-    axios.get('/api/diary')
+  fetchCurrentDateDiary(date) {
+    axios.get('/api/diary', {
+      params: {
+        date: date
+      }
+    })
       .then((response) => {
         this.setState(JSON.parse(response));
       })
@@ -107,7 +111,7 @@ class App extends Component {
     event.preventDefault();
     let total = this.state.dailyTotal;
     let meal = this.state[`${mealType}`];
-    
+
     this.setState({
       dailyTotal: {
         calories: total.calories + data.calories,
@@ -143,16 +147,15 @@ class App extends Component {
   }
 
   handleAddDay() {
-    let newDate = moment().add(1, 'd');
-    this.setState({step: this.state.step + 1})
-    this.fetchCurrentDateDiary();
+    let newDate = moment().add(1, 'd').format('dddd, MMMM Do YYYY');
+    // console.log(newDate)
+    this.fetchCurrentDateDiary(newDate);
   }
 
   handleSubtractDay() {
-    let newDate = moment(this.state.date).subtract(1, 'd');
-    this.setState({ step: this.state.step - 1 })
+    let newDate = moment().subtract(1, 'd').format('dddd, MMMM Do YYYY');
     console.log(newDate);
-    this.fetchCurrentDateDiary();
+    this.fetchCurrentDateDiary(newDate);
   }
 
   handleFoodDelete(data, mealType) {
