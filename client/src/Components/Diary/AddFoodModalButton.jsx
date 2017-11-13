@@ -10,7 +10,7 @@ const AddFoodModalButton = () => {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Add a food for today!</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

@@ -3,6 +3,7 @@ import DiaryLogMealEntry from './DiaryLogMealEntry.jsx';
 import QuickAddButton from './QuickAddButton.jsx';
 import AddFoodModalButton from './AddFoodModalButton.jsx';
 
+
 const DiaryLog = ({ mealType, data }) => {
   return (
     <table className="table table-responsive-md table-hover">
@@ -39,14 +40,5 @@ const DiaryLog = ({ mealType, data }) => {
   );
 }
 
-// {
-//   calories: 0,
-//     carbs: 0,
-//       fats: 0,
-//         protein: 0,
-//           sodium: 0,
-//             sugar: 0,
-//               foods: []
-// },
 
 export default DiaryLog;
