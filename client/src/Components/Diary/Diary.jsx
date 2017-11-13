@@ -3,7 +3,7 @@ import DiaryLog from './DiaryLog.jsx';
 import DiaryLogTotal from './DiaryLogTotal.jsx';
 
 const Diary = ({ currentDay, handleAddFoodSubmit, handleFoodDelete }) => {
-  const { dailyTotal, dailyGoal, Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
+  const { date, dailyTotal, dailyGoal, Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
   
   return (
     <div>
@@ -12,6 +12,11 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleFoodDelete }) => {
 
         <div className="col-md-10">
           <h1>Your Food Diary for:</h1>
+          <div className="btn-group">
+            <button type="button" className="btn btn-primary">{'<'}</button>
+            <button type="button" className="btn btn-primary">{date}</button>
+            <button type="button" className="btn btn-primary">{'>'}</button>
+          </div>
           <hr/>
           <table className="table table-responsive-md table-hover">
             <DiaryLog mealType="Breakfast" data={Breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleFoodDelete={handleFoodDelete} />

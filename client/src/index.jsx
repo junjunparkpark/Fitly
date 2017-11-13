@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Diary from './Components/Diary/Diary.jsx';
+import moment from 'moment';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      date: Date.now(),
+      date: moment().format('dddd, MMMM Do YYYY'),
       user: '',
       dailyTotal: {
         calories: 0,
@@ -83,7 +84,7 @@ class App extends Component {
   componentDidMount() {
     // Prompt a modal to get goals from user
     // this.setState({
-
+    console.log(this.state.date - 1);
     // })
   }
 
