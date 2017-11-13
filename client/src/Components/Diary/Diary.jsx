@@ -1,6 +1,7 @@
 import React from 'react';
 import DiaryLog from './DiaryLog.jsx';
 import DiaryLogTotal from './DiaryLogTotal.jsx';
+import DiaryLogCategoryRow from './DiaryLogCategoryRow.jsx';
 
 const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
   const { dailyTotal, dailyGoal, Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
@@ -13,11 +14,15 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
         <div className="col-md-10">
           <h1>Your Food Diary for:</h1>
           <hr/>
-          <DiaryLog mealType="Breakfast" data={Breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-          <DiaryLog mealType="Lunch" data={Lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-          <DiaryLog mealType="Dinner" data={Dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-          <DiaryLog mealType="Snacks" data={Snacks} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-          <DiaryLogTotal dailyTotal={dailyTotal} dailyGoal={dailyGoal} />
+          <table className="table table-responsive-md table-hover">
+            <DiaryLogCategoryRow type='Breakfast' />
+            <DiaryLog mealType="Breakfast" data={Breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+            <DiaryLog mealType="Lunch" data={Lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+            <DiaryLog mealType="Dinner" data={Dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+            <DiaryLog mealType="Snacks" data={Snacks} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+
+            <DiaryLogTotal dailyTotal={dailyTotal} dailyGoal={dailyGoal} />
+          </table>
         </div>
 
         <div className="col-md-1"></div>

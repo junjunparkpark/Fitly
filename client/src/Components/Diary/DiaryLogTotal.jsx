@@ -1,7 +1,7 @@
 import React from 'react';
+import DiaryLogCategoryRow from './DiaryLogCategoryRow.jsx';
 
 const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
-  <table className="table table-responsive-md table-hover">
     <tbody>
       <tr>
         <td>
@@ -35,21 +35,9 @@ const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
         <td>{dailyTotal.sodium - dailyGoal.sodium}</td>
         <td>{dailyTotal.sugar - dailyGoal.sugar}</td>
         <td></td>
-      </tr>     
-    </tbody>
-    <tfoot>
-      <tr>
-        <th className="col-md-5" scope="col"></th>
-        <th className="col-md-1" scope="col">Calories<br />(kcal)</th>
-        <th className="col-md-1" scope="col">Carbs<br />(g)</th>
-        <th className="col-md-1" scope="col">Fat<br />(g)</th>
-        <th className="col-md-1" scope="col">Protein<br />(g)</th>
-        <th className="col-md-1" scope="col">Sodium<br />(mg)</th>
-        <th className="col-md-1" scope="col">Sugar<br />(g)</th>
-        <th className="col-md-1" scope="col"></th>
       </tr>
-    </tfoot>
-  </table>
+      <DiaryLogCategoryRow />     
+    </tbody>
 )
 
 export default DiaryLogTotal;

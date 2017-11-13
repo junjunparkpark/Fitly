@@ -1,0 +1,11 @@
+
+.nutrition-category {
+    background: #00548f;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #fff;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: capitalize;
+}
