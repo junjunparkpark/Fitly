@@ -8,7 +8,7 @@ const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleQuickAddSubmit })
   return (
     <table className="table table-responsive-md table-hover">
       <thead className="thead-light">
-        <tr >
+        <tr>
           <th className="col-md-5" scope="col"><h2>{mealType}</h2></th>
           <th className="col-md-1" scope="col">Calories<br/>(kcal)</th>
           <th className="col-md-1" scope="col">Carbs<br/>(g)</th>
@@ -28,8 +28,6 @@ const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleQuickAddSubmit })
         <tr>
           <td>
             <AddFoodModalButton mealType={mealType} handleAddFoodSubmit={handleAddFoodSubmit} /> 
-            | 
-            <QuickAddButton mealType={mealType} handleQuickAddSubmit={handleQuickAddSubmit} />
           </td>
           <td>{ data.calories }</td>
           <td>{ data.carbs }</td>

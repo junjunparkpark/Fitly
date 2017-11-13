@@ -7,12 +7,23 @@ class App extends Component {
     super();
     this.state = {
       date: Date.now(),
-      totalCalories: 0,
-      totalCarbs: 0,
-      totalFats: 0,
-      totalProtein: 0,
-      totalSodium: 0,
-      totalSugar: 0,
+      user: '',
+      dailyTotal: {
+        calories: 0,
+        carbs: 0,
+        fats: 0,
+        protein: 0,
+        todium: 0,
+        sugar: 0
+      },
+      dailyGoal: {
+        calories: 0,
+        carbs: 0,
+        fats: 0,
+        protein: 0,
+        todium: 0,
+        sugar: 0        
+      },
       Breakfast: {
         calories: 0,
         carbs: 0,
@@ -71,13 +82,24 @@ class App extends Component {
 
   componentDidMount() {
     console.log(this.state);
+    // Prompt a modal to get goals from user
+    // this.setState({
+
+    // })
   }
 
   handleAddFoodSubmit(event, mealType, data) {
     event.preventDefault();
-    console.log(mealType);
    
     this.setState({
+      dailyTotal: {
+        calories: this.state.totalCalories + data.calories,
+        carbs: this.state.totalCarbs + data.carbs,
+        fats: this.state.totalFats + data.fats,
+        protein: this.state.totalProtein + data.protein,
+        sodium: this.state.totalSodium + data.sodium,
+        sugar: this.state.totalSugar + data.sugar
+      },  
       [`${mealType}`]: {
         calories: this.state[`${mealType}`].calories + data.calories,
         carbs: this.state[`${mealType}`].carbs + data.carbs,
@@ -87,7 +109,7 @@ class App extends Component {
         sugar: this.state[`${mealType}`].sugar + data.sugar,
         foods: this.state[`${mealType}`].foods.concat(data)
       }
-    })
+    });
 
   }
 

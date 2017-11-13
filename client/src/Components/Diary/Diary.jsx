@@ -1,8 +1,9 @@
 import React from 'react';
 import DiaryLog from './DiaryLog.jsx';
+import DiaryLogTotal from './DiaryLogTotal.jsx';
 
 const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
-  const { Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
+  const { dailyTotal, Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
   
   return (
     <div>
@@ -16,6 +17,7 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
           <DiaryLog mealType="Lunch" data={Lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
           <DiaryLog mealType="Dinner" data={Dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
           <DiaryLog mealType="Snacks" data={Snacks} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+          <DiaryLogTotal data={dailyTotal} />
         </div>
 
         <div className="col-md-1"></div>
