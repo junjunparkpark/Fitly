@@ -73,7 +73,7 @@ class App extends Component {
     }
 
     this.handleAddFoodSubmit = this.handleAddFoodSubmit.bind(this);
-    this.handleQuickAddSubmit = this.handleQuickAddSubmit.bind(this);
+    this.handleFoodDelete = this.handleFoodDelete.bind(this);
   }
 
   componentWillMount() {
@@ -90,15 +90,15 @@ class App extends Component {
 
   handleAddFoodSubmit(event, mealType, data) {
     event.preventDefault();
-    console.log(mealType)
+    console.log(data)
     this.setState({
       dailyTotal: {
-        calories: this.state.totalCalories + data.calories,
-        carbs: this.state.totalCarbs + data.carbs,
-        fats: this.state.totalFats + data.fats,
-        protein: this.state.totalProtein + data.protein,
-        sodium: this.state.totalSodium + data.sodium,
-        sugar: this.state.totalSugar + data.sugar
+        calories: this.state.dailyTotal.calories + data.calories,
+        carbs: this.state.dailyTotal.carbs + data.carbs,
+        fats: this.state.dailyTotal.fats + data.fats,
+        protein: this.state.dailyTotal.protein + data.protein,
+        sodium: this.state.dailyTotal.sodium + data.sodium,
+        sugar: this.state.dailyTotal.sugar + data.sugar
       },  
       [`${mealType}`]: {
         calories: this.state[`${mealType}`].calories + data.calories,
@@ -127,10 +127,14 @@ class App extends Component {
     this.setState({ [`${e.target.name}`]: e.target.value });
   }
 
+  handleFoodDelete(e) {
+
+  }
+
   render() {
     return (
       <div>
-        <Diary currentDay={this.state} handleAddFoodSubmit={this.handleAddFoodSubmit} handleQuickAddSubmit={this.handleQuickAddSubmit} />
+        <Diary id="diary" currentDay={this.state} handleAddFoodSubmit={this.handleAddFoodSubmit} handleFoodDelete={this.handleFoodDelete} />
       </div>
     )
   }

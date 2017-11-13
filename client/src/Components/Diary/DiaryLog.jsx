@@ -6,10 +6,10 @@ import DiaryLogCategoryRow from './DiaryLogCategoryRow.jsx';
 
 
 
-const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleQuickAddSubmit }) => {
+const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleFoodDelete }) => {
   const header = mealType === 'Breakfast' || mealType === 'dailyTotal' ? (
     <tr>
-      <th className="col-md-5" >{mealType}</th>
+      <th className="col-md-5" ><span className="meal-header">{mealType}</span></th>
       <th className="col-md-1 nutrition-category" >Calories<br />(kcal)</th>
       <th className="col-md-1 nutrition-category" >Carbs<br />(g)</th>
       <th className="col-md-1 nutrition-category" >Fat<br />(g)</th>
@@ -18,12 +18,12 @@ const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleQuickAddSubmit })
       <th className="col-md-1 nutrition-category" >Sugar<br />(g)</th>
       <th className="col-md-1 " ></th> 
     </tr>)
-    : (<tr><th className="col-md-5" >{mealType}</th></tr>)
+    : (<tr><th className="col-md-5" ><span className="meal-header">{mealType}</span></th></tr>)
 
   return (
     <tbody>
       { header }
-      { data.foods.map(food => <DiaryLogMealEntry data={food} />) }
+      { data.foods.map(food => <DiaryLogMealEntry data={food} handleFoodDelete={handleFoodDelete} />) }
       <tr>
         <td>
           <AddFoodModalButton mealType={mealType} handleAddFoodSubmit={handleAddFoodSubmit} />

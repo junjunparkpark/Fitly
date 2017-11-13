@@ -3,8 +3,10 @@ import DiaryLogCategoryRow from './DiaryLogCategoryRow.jsx';
 
 const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
     <tbody>
-      <tr>
-        <td>
+      {console.log('daily total --->', dailyTotal, 'daily goal ---> ', dailyGoal)}
+      <tr className="nutrient-totals-text" >
+        <td className="nutrient-totals">
+          Totals
         </td>
         <td className="nutrient-column">{dailyTotal.calories}</td>
         <td className="nutrient-column">{dailyTotal.carbs}</td>
@@ -14,8 +16,9 @@ const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
         <td className="nutrient-column">{dailyTotal.sugar}</td>
         <td className="nutrient-column"></td>
       </tr>
-      <tr>
-        <td>
+      <tr className="nutrient-totals-text">
+        <td className="nutrient-totals">
+          Your Daily Goal
         </td>
         <td className="nutrient-column">{dailyGoal.calories}</td>
         <td className="nutrient-column">{dailyGoal.carbs}</td>
@@ -25,8 +28,9 @@ const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
         <td className="nutrient-column">{dailyGoal.sugar}</td>
         <td className="nutrient-column"></td>
       </tr>
-      <tr>
-        <td>
+      <tr className="nutrient-totals-text">
+        <td className="nutrient-totals">
+          Remaining
         </td>
         <td className="nutrient-column">{dailyTotal.calories - dailyGoal.calories}</td>
         <td className="nutrient-column">{dailyTotal.carbs - dailyGoal.carbs}</td>

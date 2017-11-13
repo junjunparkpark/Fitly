@@ -3,7 +3,7 @@ import DiaryLog from './DiaryLog.jsx';
 import DiaryLogTotal from './DiaryLogTotal.jsx';
 import DiaryLogCategoryRow from './DiaryLogCategoryRow.jsx';
 
-const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
+const Diary = ({ currentDay, handleAddFoodSubmit, handleFoodDelete }) => {
   const { dailyTotal, dailyGoal, Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
   
   return (
@@ -16,10 +16,10 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
           <hr/>
           <table className="table table-responsive-md table-hover">
             {/* <DiaryLogCategoryRow type="Breakfast" /> */}
-            <DiaryLog mealType="Breakfast" data={Breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-            <DiaryLog mealType="Lunch" data={Lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-            <DiaryLog mealType="Dinner" data={Dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-            <DiaryLog mealType="Snacks" data={Snacks} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+            <DiaryLog mealType="Breakfast" data={Breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleFoodDelete={handleFoodDelete} />
+            <DiaryLog mealType="Lunch" data={Lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleFoodDelete={handleFoodDelete} />
+            <DiaryLog mealType="Dinner" data={Dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleFoodDelete={handleFoodDelete} />
+            <DiaryLog mealType="Snacks" data={Snacks} handleAddFoodSubmit={handleAddFoodSubmit} handleFoodDelete={handleFoodDelete} />
 
             <DiaryLogTotal dailyTotal={dailyTotal} dailyGoal={dailyGoal} />
           </table>

@@ -1,7 +1,21 @@
 
+.meal-header {
+  font-weight: bold;
+  font-size: 20px; 
+  color: #00548f;
+}
 
 .nutrient-column {
   text-align: center;
+}
+
+.nutrient-totals {
+  text-align: right;
+}
+
+.nutrient-totals-text {
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .nutrition-category {
@@ -14,3 +28,4 @@
     text-align: center;
     text-transform: capitalize;
 }
+
