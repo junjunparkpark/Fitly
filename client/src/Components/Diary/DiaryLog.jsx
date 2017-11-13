@@ -1,20 +1,21 @@
 import React from 'react';
 import DiaryLogMealEntry from './DiaryLogMealEntry.jsx';
-import AddFoodButton from './AddFoodButton.jsx';
+import QuickAddButton from './QuickAddButton.jsx';
+import AddFoodModalButton from './AddFoodModalButton.jsx';
 
 const DiaryLog = ({ mealType, data }) => {
   return (
     <table className="table table-responsive-md table-hover">
       <thead className="thead-light">
-        <tr>
-          <th scope="col" colSpan="2"><h2>{mealType}</h2></th>
-          <th scope="col">Calories<br/>(kcal)</th>
-          <th scope="col">Carbs<br/>(g)</th>
-          <th scope="col">Fat<br/>(g)</th>
-          <th scope="col">Protein<br/>(g)</th>
-          <th scope="col">Sodium<br/>(mg)</th>
-          <th scope="col">Sugar<br/>(g)</th>
-          <th scope="col"></th>
+        <tr >
+          <th className="col-md-5" scope="col"><h2>{mealType}</h2></th>
+          <th className="col-md-1" scope="col">Calories<br/>(kcal)</th>
+          <th className="col-md-1" scope="col">Carbs<br/>(g)</th>
+          <th className="col-md-1" scope="col">Fat<br/>(g)</th>
+          <th className="col-md-1" scope="col">Protein<br/>(g)</th>
+          <th className="col-md-1" scope="col">Sodium<br/>(mg)</th>
+          <th className="col-md-1" scope="col">Sugar<br/>(g)</th>
+          <th className="col-md-1" scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +25,7 @@ const DiaryLog = ({ mealType, data }) => {
       </tbody>
       <tfoot>
         <tr>
-          <td colSpan="2"><AddFoodButton/></td>
+          <td><AddFoodModalButton /> | <QuickAddButton/></td>
           <td>{ data.calories }</td>
           <td>{ data.carbs }</td>
           <td>{ data.fats }</td>
