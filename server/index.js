@@ -14,7 +14,14 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.get('/api/diary', (req, res) => {
-  
+  DiaryEntry.find({date: req.query}, (err, entry) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.json(entry);
+    }
+  })
 });
 
 app.post('/api/diary', (req, res) => {
