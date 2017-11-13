@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DiaryLogMealEntry = ({ data, handleFoodDelete }) => (
+const DiaryLogMealEntry = ({ mealType, data, handleFoodDelete }) => (
   <tr>
     <td>{data.name}</td>
     <td className="nutrient-column">{data.calories}</td>
@@ -9,7 +9,7 @@ const DiaryLogMealEntry = ({ data, handleFoodDelete }) => (
     <td className="nutrient-column">{data.protein}</td>
     <td className="nutrient-column">{data.sodium}</td>
     <td className="nutrient-column">{data.sugar}</td>
-    <td><button className="btn btn-danger btn-xs" onClick={(e) => handleFoodDelete(data) }>delete</button></td>
+    <td><button className="btn btn-danger btn-xs" onClick={(e) => handleFoodDelete(data, mealType) }>delete</button></td>
   </tr>
 );
 

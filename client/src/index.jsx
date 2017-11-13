@@ -127,8 +127,30 @@ class App extends Component {
     this.setState({ [`${e.target.name}`]: e.target.value });
   }
 
-  handleFoodDelete(e) {
-
+  handleFoodDelete(data, mealType) {
+    console.log('handleFoodDelete!!!  ', data, mealType)
+    let targetFood = JSON.stringify(data);
+    let newFoods = this.state[`${mealType}`].foods.filter(food => JSON.stringify(food) !== targetFood);
+    
+    this.setState({
+      dailyTotal: {
+        calories: this.state.dailyTotal.calories - data.calories,
+        carbs: this.state.dailyTotal.carbs - data.carbs,
+        fats: this.state.dailyTotal.fats - data.fats,
+        protein: this.state.dailyTotal.protein - data.protein,
+        sodium: this.state.dailyTotal.sodium - data.sodium,
+        sugar: this.state.dailyTotal.sugar - data.sugar
+      },
+      [`${mealType}`]: {
+        calories: this.state[`${mealType}`].calories - data.calories,
+        carbs: this.state[`${mealType}`].carbs - data.carbs,
+        fats: this.state[`${mealType}`].fats - data.fats,
+        protein: this.state[`${mealType}`].protein - data.protein,
+        sodium: this.state[`${mealType}`].sodium - data.sodium,
+        sugar: this.state[`${mealType}`].sugar - data.sugar,
+        foods: newFoods
+      }      
+    });
   }
 
   render() {
