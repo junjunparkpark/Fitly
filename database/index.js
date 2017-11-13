@@ -21,17 +21,70 @@ var foodSchema = mongoose.Schema({
 
 var diaryEntrySchema = mongoose.Schema({
   date: String,
-  breakfast: [],
-  lunch:[],
-  dinner: [],
-  snacks: [],
-  note: String,
+  dateStep: Number,
+  user: String,
+  dailyTotal: {
+    calories: Number,
+    carbs: Number,
+    fats: Number,
+    protein: Number,
+    sodium: Number,
+    sugar: Number
+  },
+  dailyGoal: {
+    calories: Number,
+    carbs: Number,
+    fats: Number,
+    protein: Number,
+    sodium: Number,
+    sugar: Number
+  },
+  Breakfast: {
+    calories: Number,
+    carbs: Number,
+    fats: Number,
+    protein: Number,
+    sodium: Number,
+    sugar: Number,
+    foods: []
+  },
+  Lunch: {
+    calories: Number,
+    carbs: Number,
+    fats: Number,
+    protein: Number,
+    sodium: Number,
+    sugar: Number,
+    foods: []
+  },
+  Dinner: {
+    calories: Number,
+    carbs: Number,
+    fats: Number,
+    protein: Number,
+    sodium: Number,
+    sugar: Number,
+    foods: []
+  },
+  Snacks: {
+    calories: Number,
+    carbs: Number,
+    fats: Number,
+    protein: Number,
+    sodium: Number,
+    sugar: Number,
+    foods: []
+  },
   exercise: {
     caloriesBurned: Number,
     exercises: []
   },
-  water: Number,
-  userId: String
+  notes: {
+    text: String
+  },
+  water: {
+    total: Number
+  }
 });
 
 // Possible Database Schema Designs
@@ -39,49 +92,49 @@ var diaryEntrySchema = mongoose.Schema({
 // var userDay = {
 //   date: Date.now(),
 //     breakfast: {
-//     calories: 0,
-//       carbs: 0,
-//         fats: 0,
-//           protein: 0,
-//             sodium: 0,
-//               sugar: 0,
+//     calories: Number,
+//       carbs: Number,
+//         fats: Number,
+//           protein: Number,
+//             sodium: Number,
+//               sugar: Number,
 //                 foods: []
 //   },
 //   lunch: {
-//     calories: 0,
-//       carbs: 0,
-//         fats: 0,
-//           protein: 0,
-//             sodium: 0,
-//               sugar: 0,
+//     calories: Number,
+//       carbs: Number,
+//         fats: Number,
+//           protein: Number,
+//             sodium: Number,
+//               sugar: Number,
 //                 foods: []
 //   },
 //   dinner: {
-//     calories: 0,
-//       carbs: 0,
-//         fats: 0,
-//           protein: 0,
-//             sodium: 0,
-//               sugar: 0,
+//     calories: Number,
+//       carbs: Number,
+//         fats: Number,
+//           protein: Number,
+//             sodium: Number,
+//               sugar: Number,
 //                 foods: []
 //   },
 //   snacks: {
-//     calories: 0,
-//       carbs: 0,
-//         fats: 0,
-//           protein: 0,
-//             sodium: 0,
-//               sugar: 0,
+//     calories: Number,
+//       carbs: Number,
+//         fats: Number,
+//           protein: Number,
+//             sodium: Number,
+//               sugar: Number,
 //                 foods: []
 //   },
 //   exercise: {
-//     caloriesBurned: 0,
+//     caloriesBurned: Number,
 //       exercises: []
 //   },
 //   notes: {
-//     text: ''
+//     text: String
 //   },
 //   water: {
-//     total: 0
+//     total: Number
 //   }
 // }

@@ -87,6 +87,7 @@ class App extends Component {
 
   componentDidMount() {
     // Prompt a modal to get goals from user
+    this.fetchCurrentDateDiary();
     // this.setState({
     
     // })
@@ -95,7 +96,7 @@ class App extends Component {
   fetchCurrentDateDiary() {
     axios.get('/api/diary')
       .then((response) => {
-        console.log(response);
+        this.setState(JSON.parse(response));
       })
       .catch((error) => {
         console.log(error);
@@ -104,24 +105,26 @@ class App extends Component {
 
   handleAddFoodSubmit(event, mealType, data) {
     event.preventDefault();
+    let total = this.state.dailyTotal;
+    let meal = this.state[`${mealType}`];
     
     this.setState({
       dailyTotal: {
-        calories: this.state.dailyTotal.calories + data.calories,
-        carbs: this.state.dailyTotal.carbs + data.carbs,
-        fats: this.state.dailyTotal.fats + data.fats,
-        protein: this.state.dailyTotal.protein + data.protein,
-        sodium: this.state.dailyTotal.sodium + data.sodium,
-        sugar: this.state.dailyTotal.sugar + data.sugar
+        calories: total.calories + data.calories,
+        carbs: total.carbs + data.carbs,
+        fats: total.fats + data.fats,
+        protein: total.protein + data.protein,
+        sodium: total.sodium + data.sodium,
+        sugar: total.sugar + data.sugar
       },  
       [`${mealType}`]: {
-        calories: this.state[`${mealType}`].calories + data.calories,
-        carbs: this.state[`${mealType}`].carbs + data.carbs,
-        fats: this.state[`${mealType}`].fats + data.fats,
-        protein: this.state[`${mealType}`].protein + data.protein,
-        sodium: this.state[`${mealType}`].sodium + data.sodium,
-        sugar: this.state[`${mealType}`].sugar + data.sugar,
-        foods: this.state[`${mealType}`].foods.concat(data)
+        calories: meal.calories + data.calories,
+        carbs: meal.carbs + data.carbs,
+        fats: meal.fats + data.fats,
+        protein: meal.protein + data.protein,
+        sodium: meal.sodium + data.sodium,
+        sugar: meal.sugar + data.sugar,
+        foods: meal.foods.concat(data)
       }
     });
 
