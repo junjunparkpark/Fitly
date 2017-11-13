@@ -1,23 +1,69 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import DiaryLog from './Components/Diary/DiaryLog.jsx';
+import Diary from './Components/Diary/Diary.jsx';
 
-const App = () => (
-  <div>
-    <div className="container">
-      <h1>Your Food Diary For:</h1>
-    </div>
-    <div className="container">
-      <div className="col-md-1">
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      date: Date.now(),
+      breakfast: {
+        calories: 0,
+        carbs: 0,
+        fats: 0,
+        protein: 0,
+        sodium: 0,
+        sugar: 0,
+        foods: []
+      },
+      lunch: {
+        calories: 0,
+        carbs: 0,
+        fats: 0,
+        protein: 0,
+        sodium: 0,
+        sugar: 0,
+        foods: []
+      },
+      dinner: {
+        calories: 0,
+        carbs: 0,
+        fats: 0,
+        protein: 0,
+        sodium: 0,
+        sugar: 0,
+        foods: []
+      },
+      snacks: {
+        calories: 0,
+        carbs: 0,
+        fats: 0,
+        protein: 0,
+        sodium: 0,
+        sugar: 0,
+        foods: []
+      },
+      exercise: {
+        caloriesBurned: 0,
+        exercises: []
+      },
+      notes: {
+        text: ''
+      },
+      water: {
+        total: 0
+      }
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Diary />
       </div>
-      <div className="col-md-10">
-      <DiaryLog />
-      </div>
-      <div className="col-md-1">
-      </div>
-    </div>
-  </div>
-);
+    )
+  }
+};
 
 
 ReactDOM.render(<App/>, document.getElementById('app'));
