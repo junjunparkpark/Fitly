@@ -2,14 +2,14 @@ import React from 'react';
 
 const DiaryLogMealEntry = ({ data }) => (
   <tr>
-    <td>{data.name}</td>
-    <td>{data.calories}</td>
-    <td>{data.carbs}</td>
-    <td>{data.fats}</td>
-    <td>{data.protein}</td>
-    <td>{data.sodium}</td>
-    <td>{data.sugar}</td>
-    <td><button>delete</button></td>
+    <td className="nutrient-column">{data.name}</td>
+    <td className="nutrient-column">{data.calories}</td>
+    <td className="nutrient-column">{data.carbs}</td>
+    <td className="nutrient-column">{data.fats}</td>
+    <td className="nutrient-column">{data.protein}</td>
+    <td className="nutrient-column">{data.sodium}</td>
+    <td className="nutrient-column">{data.sugar}</td>
+    <td><button className="btn btn-alert btn-xs">delete</button></td>
   </tr>
 );
 

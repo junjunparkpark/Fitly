@@ -15,7 +15,7 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
           <h1>Your Food Diary for:</h1>
           <hr/>
           <table className="table table-responsive-md table-hover">
-            <DiaryLogCategoryRow type='Breakfast' />
+            {/* <DiaryLogCategoryRow type="Breakfast" /> */}
             <DiaryLog mealType="Breakfast" data={Breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
             <DiaryLog mealType="Lunch" data={Lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
             <DiaryLog mealType="Dinner" data={Dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />

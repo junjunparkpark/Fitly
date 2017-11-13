@@ -6,37 +6,46 @@ const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
       <tr>
         <td>
         </td>
-        <td>{dailyTotal.calories}</td>
-        <td>{dailyTotal.carbs}</td>
-        <td>{dailyTotal.fats}</td>
-        <td>{dailyTotal.protein}</td>
-        <td>{dailyTotal.sodium}</td>
-        <td>{dailyTotal.sugar}</td>
-        <td></td>
+        <td className="nutrient-column">{dailyTotal.calories}</td>
+        <td className="nutrient-column">{dailyTotal.carbs}</td>
+        <td className="nutrient-column">{dailyTotal.fats}</td>
+        <td className="nutrient-column">{dailyTotal.protein}</td>
+        <td className="nutrient-column">{dailyTotal.sodium}</td>
+        <td className="nutrient-column">{dailyTotal.sugar}</td>
+        <td className="nutrient-column"></td>
       </tr>
       <tr>
         <td>
         </td>
-        <td>{dailyGoal.calories}</td>
-        <td>{dailyGoal.carbs}</td>
-        <td>{dailyGoal.fats}</td>
-        <td>{dailyGoal.protein}</td>
-        <td>{dailyGoal.sodium}</td>
-        <td>{dailyGoal.sugar}</td>
-        <td></td>
+        <td className="nutrient-column">{dailyGoal.calories}</td>
+        <td className="nutrient-column">{dailyGoal.carbs}</td>
+        <td className="nutrient-column">{dailyGoal.fats}</td>
+        <td className="nutrient-column">{dailyGoal.protein}</td>
+        <td className="nutrient-column">{dailyGoal.sodium}</td>
+        <td className="nutrient-column">{dailyGoal.sugar}</td>
+        <td className="nutrient-column"></td>
       </tr>
       <tr>
         <td>
         </td>
-        <td>{dailyTotal.calories - dailyGoal.calories}</td>
-        <td>{dailyTotal.carbs - dailyGoal.carbs}</td>
-        <td>{dailyTotal.fats - dailyGoal.fats}</td>
-        <td>{dailyTotal.protein - dailyGoal.protein}</td>
-        <td>{dailyTotal.sodium - dailyGoal.sodium}</td>
-        <td>{dailyTotal.sugar - dailyGoal.sugar}</td>
-        <td></td>
+        <td className="nutrient-column">{dailyTotal.calories - dailyGoal.calories}</td>
+        <td className="nutrient-column">{dailyTotal.carbs - dailyGoal.carbs}</td>
+        <td className="nutrient-column">{dailyTotal.fats - dailyGoal.fats}</td>
+        <td className="nutrient-column">{dailyTotal.protein - dailyGoal.protein}</td>
+        <td className="nutrient-column">{dailyTotal.sodium - dailyGoal.sodium}</td>
+        <td className="nutrient-column">{dailyTotal.sugar - dailyGoal.sugar}</td>
+        <td className="nutrient-column"></td>
       </tr>
-      <DiaryLogCategoryRow />     
+      <tr>
+        <th className="col-md-5" ></th>
+        <th className="col-md-1 nutrition-category" >Calories<br />(kcal)</th>
+        <th className="col-md-1 nutrition-category" >Carbs<br />(g)</th>
+        <th className="col-md-1 nutrition-category" >Fat<br />(g)</th>
+        <th className="col-md-1 nutrition-category" >Protein<br />(g)</th>
+        <th className="col-md-1 nutrition-category" >Sodium<br />(mg)</th>
+        <th className="col-md-1 nutrition-category" >Sugar<br />(g)</th>
+        <th className="col-md-1 " ></th>
+      </tr>  
     </tbody>
 )
 
