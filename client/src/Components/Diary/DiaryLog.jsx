@@ -22,7 +22,7 @@ const DiaryLog = ({ mealType, data, handleAddFoodSubmit, handleFoodDelete }) => 
   return (
     <tbody>
       { header }
-      { data.foods.map(food => <DiaryLogMealEntry mealType={mealType} data={food} handleFoodDelete={handleFoodDelete} />) }
+      { data.foods.map((food, idx) => <DiaryLogMealEntry key={`${mealType}-${idx}`} mealType={mealType} data={food} handleFoodDelete={handleFoodDelete} />) }
       <tr className="nutrient-footer">
         <td>
           <AddFoodModalButton mealType={mealType} handleAddFoodSubmit={handleAddFoodSubmit} />
