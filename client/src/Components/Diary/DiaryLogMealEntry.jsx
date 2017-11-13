@@ -2,10 +2,10 @@ import React from 'react';
 
 const DiaryLogMealEntry = ({ data }) => (
   <tr>
-    <td colSpan="2">{data.name}</td>
+    <td>{data.name}</td>
     <td>{data.calories}</td>
     <td>{data.carbs}</td>
-    <td>{data.fat}</td>
+    <td>{data.fats}</td>
     <td>{data.protein}</td>
     <td>{data.sodium}</td>
     <td>{data.sugar}</td>

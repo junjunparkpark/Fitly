@@ -1,62 +1,92 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const AddFoodModalButton = ({ handleAddFoodSubmit, mealType }) => {
-  return (
-    <div>
-      <button type="button" className="btn btn-xs btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Add Food
-      </button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h3 className="modal-title" id="exampleModalLabel">Add a food for today!</h3>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+class AddFoodModalButton extends Component {
+  constructor(props) {
+    super(props);
+    
+    // Add state to represent a food to be added in the Index.jsx component
+    this.state = {
+      calories: 0,
+      carbs: 0,
+      fats: 0,
+      protein: 0,
+      sodium: 0,
+      sugar: 0,
+      name: ''
+    };
+
+    this.handleNumberChange = this.handleNumberChange.bind(this);
+    this.handleStringChange = this.handleStringChange.bind(this);
+  }
+
+  handleNumberChange(e) {
+    this.setState({ [`${e.target.name}`]: parseInt(e.target.value) });
+    console.log(this.state);
+  }
+
+  handleStringChange(e) {
+    this.setState({ [`${e.target.name}`]: e.target.value });
+  }
+ // [`${mealType}`]
+  render() {
+    const { handleAddFoodSubmit, mealType } = this.props;
+    return (
+      <div>
+        <button type="button" className="btn btn-xs btn-primary" data-toggle="modal" data-target="#foodModal">
+          Add Food
+        </button>
+        <div className="modal fade" id="foodModal" tabIndex="-1" role="dialog" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h3 className="modal-title">Add a food for today!</h3>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <form onSubmit={(e) => handleAddFoodSubmit(e, mealType, this.state) } name={`${mealType}`} >
+                  <div className="form-group">
+                    <label htmlFor="modal-foodname" className="form-control-label">Food Name:</label>
+                    <input type="text" name="name" className="form-control" onChange={ this.handleStringChange }/>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="modal-calories" className="form-control-label">Calories:</label>
+                    <input type="text" name="calories" className="form-control" onChange={ this.handleNumberChange } />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="modal-carbs" className="form-control-label">Carbs:</label>
+                    <input type="text" name="carbs" className="form-control" onChange={ this.handleNumberChange } />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="modal-fats" className="form-control-label">Fats:</label>
+                    <input type="text" name="fats" className="form-control" onChange={ this.handleNumberChange } />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="modal-proteins" className="form-control-label">Proteins:</label>
+                    <input type="text" name="proteins" className="form-control" onChange={ this.handleNumberChange } />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="modal-sodium" className="form-control-label">Sodium:</label>
+                    <input type="text" name="sodium" className="form-control" onChange={ this.handleNumberChange } />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="modal-sugar" className="form-control-label">Sugar:</label>
+                    <input type="text" name="sugar" className="form-control" onChange={ this.handleNumberChange } />
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" type="submit" className="btn btn-primary" >Add Food</button>
+                  </div>
+                </form>
+              </div>
+              
             </div>
-            <div className="modal-body">
-              <form onSubmit={ handleAddFoodSubmit } >
-                <div className="form-group">
-                  <label htmlFor="modal-foodname" className="form-control-label">Food Name:</label>
-                  <input type="text" className="form-control" id="modal-foodname"/>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="modal-calories" className="form-control-label">Calories:</label>
-                  <input type="text" className="form-control" id="modal-calories" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="modal-carbs" className="form-control-label">Carbs:</label>
-                  <input type="text" className="form-control" id="modal-carbs" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="modal-fats" className="form-control-label">Fats:</label>
-                  <input type="text" className="form-control" id="modal-fats" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="modal-proteins" className="form-control-label">Proteins:</label>
-                  <input type="text" className="form-control" id="modal-proteins" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="modal-sodium" className="form-control-label">Sodium:</label>
-                  <input type="text" className="form-control" id="modal-sodium" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="modal-sugar" className="form-control-label">Sugar:</label>
-                  <input type="text" className="form-control" id="modal-sugar" />
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" type="submit" className="btn btn-primary" >Add Food</button>
-                </div>
-              </form>
-             </div>
-            
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default AddFoodModalButton

@@ -7,7 +7,13 @@ class App extends Component {
     super();
     this.state = {
       date: Date.now(),
-      breakfast: {
+      totalCalories: 0,
+      totalCarbs: 0,
+      totalFats: 0,
+      totalProtein: 0,
+      totalSodium: 0,
+      totalSugar: 0,
+      Breakfast: {
         calories: 0,
         carbs: 0,
         fats: 0,
@@ -16,7 +22,7 @@ class App extends Component {
         sugar: 0,
         foods: []
       },
-      lunch: {
+      Lunch: {
         calories: 0,
         carbs: 0,
         fats: 0,
@@ -25,7 +31,7 @@ class App extends Component {
         sugar: 0,
         foods: []
       },
-      dinner: {
+      Dinner: {
         calories: 0,
         carbs: 0,
         fats: 0,
@@ -34,7 +40,7 @@ class App extends Component {
         sugar: 0,
         foods: []
       },
-      snacks: {
+      Snacks: {
         calories: 0,
         carbs: 0,
         fats: 0,
@@ -63,15 +69,31 @@ class App extends Component {
     // Implement a fetch to our database that will fill state based on current date
   }
 
-  handleAddFoodSubmit(event) {
+  componentDidMount() {
+    console.log(this.state);
+  }
+
+  handleAddFoodSubmit(event, mealType, data) {
     event.preventDefault();
-    console.log('handleAddFoodSubmit was invoked!');
+    console.log(mealType);
+   
+    this.setState({
+      [`${mealType}`]: {
+        calories: this.state[`${mealType}`].calories + data.calories,
+        carbs: this.state[`${mealType}`].carbs + data.carbs,
+        fats: this.state[`${mealType}`].fats + data.fats,
+        protein: this.state[`${mealType}`].protein + data.protein,
+        sodium: this.state[`${mealType}`].sodium + data.sodium,
+        sugar: this.state[`${mealType}`].sugar + data.sugar,
+        foods: this.state[`${mealType}`].foods.concat(data)
+      }
+    })
 
   }
 
   handleQuickAddSubmit(event) {
     event.preventDefault();
-    console.log('handleQuickAdd was invoked!');
+    console.log('handleQuickAdd was invoked!', event);
   }
 
   render() {

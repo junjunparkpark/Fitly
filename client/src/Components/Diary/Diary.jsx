@@ -2,7 +2,7 @@ import React from 'react';
 import DiaryLog from './DiaryLog.jsx';
 
 const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
-  const { breakfast, lunch, dinner, snacks, water, exercise, notes} = currentDay;
+  const { Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
   
   return (
     <div>
@@ -12,10 +12,10 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleQuickAddSubmit }) => {
         <div className="col-md-10">
           <h1>Your Food Diary for:</h1>
           <hr/>
-          <DiaryLog mealType="Breakfast" data={breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-          <DiaryLog mealType="Lunch" data={lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-          <DiaryLog mealType="Dinner" data={dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
-          <DiaryLog mealType="Snacks" data={snacks} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+          <DiaryLog mealType="Breakfast" data={Breakfast} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+          <DiaryLog mealType="Lunch" data={Lunch} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+          <DiaryLog mealType="Dinner" data={Dinner} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
+          <DiaryLog mealType="Snacks" data={Snacks} handleAddFoodSubmit={handleAddFoodSubmit} handleQuickAddSubmit={handleQuickAddSubmit} />
         </div>
 
         <div className="col-md-1"></div>
