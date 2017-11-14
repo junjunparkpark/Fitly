@@ -105,7 +105,7 @@ class App extends Component {
       }
     })
       .then((response) => {
-        this.setState(response.data, () => console.log(this.state));
+        this.setState(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -115,7 +115,6 @@ class App extends Component {
   saveCurrentDateDiary(triggerName) {
     axios.post('/api/diary', this.state)
       .then((response) => {
-        console.log(response);
         triggerName === 'add' ? this.handleAddDay() : this.handleSubtractDay()
       })
       .catch((error) => {
@@ -124,9 +123,10 @@ class App extends Component {
   }
 
   handleAddFoodSubmit(event, mealType, data) {
-    if (event) { event.preventDefault(); }
+    event.preventDefault();
     let total = this.state.dailyTotal;
     let meal = this.state[`${mealType}`];
+    $(`#${mealType}-modal`).modal('toggle');
 
     this.setState({
       dailyTotal: {
@@ -147,7 +147,6 @@ class App extends Component {
         foods: meal.foods.concat(data)
       }
     });
-
   }
 
   handleQuickAddSubmit(event) {

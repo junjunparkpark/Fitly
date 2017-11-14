@@ -37,10 +37,10 @@ class AddFoodModalButton extends Component {
 
     return (
       <div>
-        <button type="button" className="btn btn-xs btn-primary" data-toggle="modal" data-target={`#${mealType}Modal`}>
+        <button type="button" className="btn btn-xs btn-primary" data-toggle="modal" data-target={`#${mealType}-modal`}>
           Add Food
         </button>
-        <div className="modal fade" id={`${mealType}Modal`} tabIndex="-1" role="dialog" aria-hidden="true">
+        <div className="modal fade" id={`${mealType}-modal`} tabIndex="-1" role="dialog" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -80,7 +80,7 @@ class AddFoodModalButton extends Component {
                     <input type="text" name="sugar" className="form-control" onChange={ this.handleNumberChange } />
                   </div>
                   <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="close-modal" className="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" type="submit" className="btn btn-primary" >Add Food</button>
                   </div>
                 </form>
