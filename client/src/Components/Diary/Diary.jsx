@@ -12,7 +12,7 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleFoodDelete, saveCurrentD
 
         <div className="col-md-10">
           <div className="center">
-            <h1>Your Food Diary for:</h1>
+            <h1 className="app-header">Your Food Diary for:</h1>
             <div className="btn-group">
               <button type="button" className="btn btn-primary" onClick={() => saveCurrentDateDiary('subtract')}>{'<'}</button>
               <button type="button" className="btn btn-primary">{date}</button>

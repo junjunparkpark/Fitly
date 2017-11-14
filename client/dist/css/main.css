@@ -1,4 +1,10 @@
 
+.app-header {
+  color: #00548f;
+  font-weight: bold;
+  font-size: 28px;
+}
+
 .center {
   text-align:center;
   margin-bottom:15px;
