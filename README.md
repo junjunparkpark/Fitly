@@ -10,7 +10,8 @@ On your terminal in the root directory of this project...
 
 - [ ] Run `npm install` to install required dependencies.
 - [ ] Run `npm run build` to initiate Webpack to transpile and bundle the React components.
-- [ ] Run `npm start` to start the application from the provided ExpressJS server.
+- [ ] Open a terminal tab and run `npm start` to start the application from the provided Node-ExpressJS server.
+- [ ] Go to `localhost:3000` on your web browser to view the app.
 
 
 
