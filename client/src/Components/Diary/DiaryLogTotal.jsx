@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
     <tbody>
       <tr className="nutrient-totals-text" >
@@ -30,12 +31,12 @@ const DiaryLogTotal = ({ dailyTotal, dailyGoal }) => (
         <td className="nutrient-totals">
           Remaining
         </td>
-        <td className="nutrient-column">{dailyTotal.calories - dailyGoal.calories}</td>
-        <td className="nutrient-column">{dailyTotal.carbs - dailyGoal.carbs}</td>
-        <td className="nutrient-column">{dailyTotal.fats - dailyGoal.fats}</td>
-        <td className="nutrient-column">{dailyTotal.protein - dailyGoal.protein}</td>
-        <td className="nutrient-column">{dailyTotal.sodium - dailyGoal.sodium}</td>
-        <td className="nutrient-column">{dailyTotal.sugar - dailyGoal.sugar}</td>
+        <td className="nutrient-column">{dailyGoal.calories - dailyTotal.calories}</td>
+        <td className="nutrient-column">{dailyGoal.carbs - dailyTotal.carbs}</td>
+        <td className="nutrient-column">{dailyGoal.fats - dailyTotal.fats}</td>
+        <td className="nutrient-column">{dailyGoal.protein - dailyTotal.protein}</td>
+        <td className="nutrient-column">{dailyGoal.sodium - dailyTotal.sodium}</td>
+        <td className="nutrient-column">{dailyGoal.sugar - dailyTotal.sugar}</td>
         <td className="nutrient-column"></td>
       </tr>
       <tr>

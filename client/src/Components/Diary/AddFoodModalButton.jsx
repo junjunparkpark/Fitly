@@ -69,7 +69,7 @@ class AddFoodModalButton extends Component {
                   </div>
                   <div className="form-group">
                     <label htmlFor="modal-proteins" className="form-control-label">Proteins:</label>
-                    <input type="text" name="proteins" className="form-control" onChange={ this.handleNumberChange } />
+                    <input type="text" name="protein" className="form-control" onChange={ this.handleNumberChange } />
                   </div>
                   <div className="form-group">
                     <label htmlFor="modal-sodium" className="form-control-label">Sodium:</label>

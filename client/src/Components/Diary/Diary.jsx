@@ -2,7 +2,7 @@ import React from 'react';
 import DiaryLog from './DiaryLog.jsx';
 import DiaryLogTotal from './DiaryLogTotal.jsx';
 
-const Diary = ({ currentDay, handleAddFoodSubmit, handleFoodDelete, handleAddDay, handleSubtractDay }) => {
+const Diary = ({ currentDay, handleAddFoodSubmit, handleFoodDelete, saveCurrentDateDiary }) => {
   const { date, dailyTotal, dailyGoal, Breakfast, Lunch, Dinner, Snacks, water, exercise, notes} = currentDay;
   
   return (
@@ -14,9 +14,9 @@ const Diary = ({ currentDay, handleAddFoodSubmit, handleFoodDelete, handleAddDay
           <div className="center">
             <h1>Your Food Diary for:</h1>
             <div className="btn-group">
-              <button type="button" className="btn btn-primary" onClick={handleSubtractDay}>{'<'}</button>
+              <button type="button" className="btn btn-primary" onClick={() => saveCurrentDateDiary('subtract')}>{'<'}</button>
               <button type="button" className="btn btn-primary">{date}</button>
-              <button type="button" className="btn btn-primary" onClick={handleAddDay}>{'>'}</button>
+              <button type="button" className="btn btn-primary" onClick={() => saveCurrentDateDiary('add') }>{'>'}</button>
             </div>
           </div>
           <table className="table table-responsive-md table-hover">

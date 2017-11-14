@@ -79,6 +79,7 @@ class App extends Component {
     this.handleFoodDelete = this.handleFoodDelete.bind(this);
     this.handleAddDay = this.handleAddDay.bind(this);
     this.handleSubtractDay = this.handleSubtractDay.bind(this);
+    this.saveCurrentDateDiary = this.saveCurrentDateDiary.bind(this);
   }
 
   componentWillMount() {
@@ -111,8 +112,15 @@ class App extends Component {
       });
   }
 
-  loadIncomingFood() {
-    
+  saveCurrentDateDiary(triggerName) {
+    axios.post('/api/diary', this.state)
+      .then((response) => {
+        console.log(response);
+        triggerName === 'add' ? this.handleAddDay() : this.handleSubtractDay()
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   handleAddFoodSubmit(event, mealType, data) {
@@ -208,6 +216,7 @@ class App extends Component {
           handleFoodDelete={this.handleFoodDelete} 
           handleAddDay={this.handleAddDay}
           handleSubtractDay={this.handleSubtractDay}
+          saveCurrentDateDiary={this.saveCurrentDateDiary}
         />
       </div>
     )
