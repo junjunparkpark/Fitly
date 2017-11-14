@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fitly', { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
+// Started on the Database, but stopped after suggestion not to.
+
 var userSchema = mongoose.Schema({
   name: String,
   email: String,

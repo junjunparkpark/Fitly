@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
 const path = require('path');
 const { DiaryEntry } = require('../database/index.js');
 
@@ -38,6 +37,7 @@ app.get('/api/diary', (req, res) => {
 app.post('/api/diary', (req, res) => {
   dummyData[req.body.date] = req.body;
   res.sendStatus(201);
+
     // MONGOOSE DB QUERIES
   // var newEntry = new DiaryEntry(req.body);
   // newEntry.save((err) => {
