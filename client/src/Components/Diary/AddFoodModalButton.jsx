@@ -19,7 +19,8 @@ class AddFoodModalButton extends Component {
   }
 
   handleNumberChange(e) {
-    this.setState({ [`${e.target.name}`]: parseInt(e.target.value) });
+    let value = isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value)
+    this.setState({ [`${e.target.name}`]: value });
   }
 
   handleStringChange(e) {

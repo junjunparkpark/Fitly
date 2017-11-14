@@ -83,32 +83,40 @@ class App extends Component {
 
   componentWillMount() {
     // Implement a fetch to our database that will fill state based on current date
+    this.fetchCurrentDateDiary();
   }
 
   componentDidMount() {
     // Prompt a modal to get goals from user
-    this.fetchCurrentDateDiary();
-    // this.setState({
-    
-    // })
   }
 
-  fetchCurrentDateDiary(date) {
+  fetchCurrentDateDiary() {
+    let date = this.state.dateStep >= 0 
+      ? moment().add(this.state.dateStep, 'd').format('dddd, MMMM Do YYYY')
+      : moment().subtract(Math.abs(this.state.dateStep), 'd').format('dddd, MMMM Do YYYY')
+    this.setState({
+      date: date
+    });
+
     axios.get('/api/diary', {
       params: {
         date: date
       }
     })
       .then((response) => {
-        this.setState(JSON.parse(response));
+        this.setState(response.data, () => console.log(this.state));
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
+  loadIncomingFood() {
+    
+  }
+
   handleAddFoodSubmit(event, mealType, data) {
-    event.preventDefault();
+    if (event) { event.preventDefault(); }
     let total = this.state.dailyTotal;
     let meal = this.state[`${mealType}`];
 
@@ -147,38 +155,44 @@ class App extends Component {
   }
 
   handleAddDay() {
-    let newDate = moment().add(1, 'd').format('dddd, MMMM Do YYYY');
-    // console.log(newDate)
-    this.fetchCurrentDateDiary(newDate);
+    this.setState({
+      dateStep: this.state.dateStep + 1
+    }, () => {
+      this.fetchCurrentDateDiary();
+    });
   }
 
   handleSubtractDay() {
-    let newDate = moment().subtract(1, 'd').format('dddd, MMMM Do YYYY');
-    console.log(newDate);
-    this.fetchCurrentDateDiary(newDate);
+    this.setState({
+      dateStep: this.state.dateStep - 1
+    }, () => {
+      this.fetchCurrentDateDiary();
+    });
   }
 
   handleFoodDelete(data, mealType) {
-    console.log('handleFoodDelete!!!  ', JSON.stringify(this.state));
+    let meal = this.state[`${mealType}`];
+    let total = this.state.dailyTotal;
     let targetFood = JSON.stringify(data);
-    let newFoods = this.state[`${mealType}`].foods.filter(food => JSON.stringify(food) !== targetFood);
+    let newFoods = meal.foods.filter(food => JSON.stringify(food) !== targetFood);
+    
     
     this.setState({
       dailyTotal: {
-        calories: this.state.dailyTotal.calories - data.calories,
-        carbs: this.state.dailyTotal.carbs - data.carbs,
-        fats: this.state.dailyTotal.fats - data.fats,
-        protein: this.state.dailyTotal.protein - data.protein,
-        sodium: this.state.dailyTotal.sodium - data.sodium,
-        sugar: this.state.dailyTotal.sugar - data.sugar
+        calories: total.calories - data.calories,
+        carbs: total.carbs - data.carbs,
+        fats: total.fats - data.fats,
+        protein: total.protein - data.protein,
+        sodium: total.sodium - data.sodium,
+        sugar: total.sugar - data.sugar
       },
       [`${mealType}`]: {
-        calories: this.state[`${mealType}`].calories - data.calories,
-        carbs: this.state[`${mealType}`].carbs - data.carbs,
-        fats: this.state[`${mealType}`].fats - data.fats,
-        protein: this.state[`${mealType}`].protein - data.protein,
-        sodium: this.state[`${mealType}`].sodium - data.sodium,
-        sugar: this.state[`${mealType}`].sugar - data.sugar,
+        calories: meal.calories - data.calories,
+        carbs: meal.carbs - data.carbs,
+        fats: meal.fats - data.fats,
+        protein: meal.protein - data.protein,
+        sodium: meal.sodium - data.sodium,
+        sugar: meal.sugar - data.sugar,
         foods: newFoods
       }      
     });
