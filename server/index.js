@@ -13,8 +13,6 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.get('/api/diary', (req, res) => {
-  console.log(req.query.date);
-
   if (!dummyData[req.query.date]) {
     dummyData[req.query.date] = template;
     dummyData[req.query.date].date = req.query.date;

@@ -8,8 +8,6 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
-  debug: true,
-  devtool: "#eval-source-map",
   module: {
     loaders: [
       {
