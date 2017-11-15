@@ -93,7 +93,7 @@ class App extends Component {
 
   fetchCurrentDateDiary() {
     let date = this.state.dateStep >= 0 
-      ? moment().add(this.state.dateStep, 'd').format('dddd, MMMM Do YYYY')
+      ? moment().add(Math.abs(this.state.dateStep), 'd').format('dddd, MMMM Do YYYY')
       : moment().subtract(Math.abs(this.state.dateStep), 'd').format('dddd, MMMM Do YYYY')
     this.setState({
       date: date
